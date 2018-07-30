@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9813EF6D210F2CD500C06842 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9813EF6C210F2CD500C06842 /* Player.swift */; };
+		9813EF6F210F2E1300C06842 /* PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9813EF6E210F2E1300C06842 /* PlayerTests.swift */; };
 		984DAB95210C4DDB00CF001F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984DAB94210C4DDB00CF001F /* AppDelegate.swift */; };
 		984DAB97210C4DDB00CF001F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984DAB96210C4DDB00CF001F /* ViewController.swift */; };
 		984DAB9A210C4DDB00CF001F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 984DAB98210C4DDB00CF001F /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		9813EF6C210F2CD500C06842 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		9813EF6E210F2E1300C06842 /* PlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTests.swift; sourceTree = "<group>"; };
 		984DAB91210C4DDB00CF001F /* nrlstats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nrlstats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		984DAB94210C4DDB00CF001F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		984DAB96210C4DDB00CF001F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				98BCD705210F14FB007F657A /* TeamTests.swift */,
+				9813EF6E210F2E1300C06842 /* PlayerTests.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98BCD706210F14FB007F657A /* TeamTests.swift in Sources */,
+				9813EF6F210F2E1300C06842 /* PlayerTests.swift in Sources */,
 				984DABAA210C4DDD00CF001F /* nrlstatsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

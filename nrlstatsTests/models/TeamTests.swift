@@ -121,20 +121,4 @@ class TeamTests: XCTestCase {
         let team = try? JSONDecoder().decode(Team.self, from: jsonData)
         XCTAssert(team?.topPlayers.isEmpty == true, "Incorrect number of topPlayers for team")
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

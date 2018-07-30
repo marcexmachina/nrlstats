@@ -13,11 +13,13 @@ struct Team: Decodable {
     let name: String
     let code: String
     let shortName: String
+    let topPlayers: [Player]
 
     enum CodingKeys: String, CodingKey {
         case id
         case name
         case code
         case shortName = "short_name"
+        case topPlayers = "top_players"
     }
 }

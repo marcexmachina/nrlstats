@@ -10,16 +10,27 @@ import XCTest
 @testable import nrlstats
 
 class TeamTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+
+    let stubbedPlayerJson = """
+        [
+            {
+                "id": 115370,
+                "position": "Full Back",
+                "full_name": "Dylan Edwards",
+                "short_name": "D. Edwards",
+                "stat_value": 221,
+                "jumper_number": 1
+            },
+            {
+                "id": 109705,
+                "position": "Prop Forward",
+                "full_name": "James Tamou",
+                "short_name": "J. Tamou",
+                "stat_value": 163,
+                "jumper_number": 8
+            }
+        ]
+    """
     
     func testId_GivenJsonData() {
         let jsonData = """
@@ -27,7 +38,8 @@ class TeamTests: XCTestCase {
                 "id": 23,
                 "name": "",
                 "code": "",
-                "short_name": ""
+                "short_name": "",
+                "top_players": []
             }
         """.data(using: .utf8)!
 
@@ -41,7 +53,8 @@ class TeamTests: XCTestCase {
                 "id": 1,
                 "name": "Test",
                 "code": "",
-                "short_name": ""
+                "short_name": "",
+                "top_players": []
             }
         """.data(using: .utf8)!
 
@@ -55,7 +68,8 @@ class TeamTests: XCTestCase {
                 "id": 1,
                 "name": "",
                 "code": "TES",
-                "short_name": ""
+                "short_name": "",
+                "top_players": []
             }
         """.data(using: .utf8)!
 
@@ -69,11 +83,58 @@ class TeamTests: XCTestCase {
                 "id": 1,
                 "name": "",
                 "code": "",
-                "short_name": "Short"
+                "short_name": "Short",
+                "top_players": []
             }
         """.data(using: .utf8)!
 
         let team = try? JSONDecoder().decode(Team.self, from: jsonData)
         XCTAssert(team?.shortName == "Short", "Incorrect shortName for team")
     }
+
+    func testTopPlayers_GivenJsonData() {
+        let jsonData = """
+            {
+                "id": 1,
+                "name": "",
+                "code": "",
+                "short_name": "Short",
+                "top_players": \(stubbedPlayerJson)
+            }
+        """.data(using: .utf8)!
+
+        let team = try? JSONDecoder().decode(Team.self, from: jsonData)
+        XCTAssert(team?.topPlayers.count == 2, "Incorrect number of topPlayers for team")
+    }
+
+    func testTopPlayersEmpty_GivenNoTopPlayers() {
+        let jsonData = """
+            {
+            "id": 1,
+            "name": "",
+            "code": "",
+            "short_name": "Short",
+            "top_players": []
+            }
+            """.data(using: .utf8)!
+
+        let team = try? JSONDecoder().decode(Team.self, from: jsonData)
+        XCTAssert(team?.topPlayers.isEmpty == true, "Incorrect number of topPlayers for team")
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

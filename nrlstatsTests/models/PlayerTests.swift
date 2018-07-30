@@ -11,6 +11,8 @@ import XCTest
 
 class PlayerTests: XCTestCase {
 
+    // MARK: - Success cases
+
     func testId_GivenJsonData() {
         let jsonData = """
             {
@@ -105,5 +107,35 @@ class PlayerTests: XCTestCase {
 
         let player = try? JSONDecoder().decode(Player.self, from: jsonData)
         XCTAssert(player?.jumperNumber == 7, "Incorrect jumperNumber for player")
+    }
+
+    // MARK: - Failing cases
+
+    func testThrowsError_GivenIncorrectIdTypeInJsonData() {
+        let jsonData = """
+            {
+                "id": "23",
+                "name": "",
+                "code": "",
+                "short_name": "",
+                "top_players": []
+            }
+        """.data(using: .utf8)!
+
+        XCTAssertThrowsError(try JSONDecoder().decode(Player.self, from: jsonData))
+    }
+
+    func testThrowsError_GivenMissingElementInJsonData() {
+        let jsonData = """
+            {
+                  "id": 23,
+                  "position": "",
+                  "short_name": "",
+                  "stat_value": 0,
+                  "jumper_number": 7
+            }
+        """.data(using: .utf8)!
+
+        XCTAssertThrowsError(try JSONDecoder().decode(Player.self, from: jsonData))
     }
 }

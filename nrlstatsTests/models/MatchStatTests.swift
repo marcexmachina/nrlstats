@@ -11,6 +11,8 @@ import XCTest
 
 class MatchStatTests: XCTestCase {
 
+    // MARK: - Success cases
+
     func testMatchId_GivenJsonData() {
         let jsonData = """
             {
@@ -113,5 +115,50 @@ class MatchStatTests: XCTestCase {
 
         let matchStat = try? JSONDecoder().decode(MatchStat.self, from: jsonData)
         XCTAssert(matchStat?.statType == "run_metres", "Incorrect statType for matchStat")
-    } 
+    }
+
+    // Mark: - Failing cases
+
+    func testThrowsError_GivenIncorrectMatchIdTypeInJsonData() {
+        let jsonData = """
+            {
+                "match_id": 1,
+                "team_A": {
+                    "id": 0,
+                    "name": "",
+                    "code": "",
+                    "short_name": "",
+                    "top_players": []
+                },
+                "team_B": {
+                    "id": 1,
+                    "name": "",
+                    "code": "",
+                    "short_name": "",
+                    "top_players": []
+                },
+                "stat_type": ""
+             }
+        """.data(using: .utf8)!
+
+        XCTAssertThrowsError(try JSONDecoder().decode(MatchStat.self, from: jsonData))
+    }
+
+    func testThrowsError_GivenMissingJsonElement() {
+        let jsonData = """
+            {
+                "match_id": "",
+                "team_A": {
+                    "id": 0,
+                    "name": "TeamA",
+                    "code": "",
+                    "short_name": "",
+                    "top_players": []
+                },
+                "stat_type": ""
+             }
+        """.data(using: .utf8)!
+
+        XCTAssertThrowsError(try JSONDecoder().decode(MatchStat.self, from: jsonData))
+    }
 }

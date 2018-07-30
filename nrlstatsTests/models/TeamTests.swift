@@ -31,6 +31,8 @@ class TeamTests: XCTestCase {
             }
         ]
     """
+
+    // MARK: - Success cases
     
     func testId_GivenJsonData() {
         let jsonData = """
@@ -120,5 +122,34 @@ class TeamTests: XCTestCase {
 
         let team = try? JSONDecoder().decode(Team.self, from: jsonData)
         XCTAssert(team?.topPlayers.isEmpty == true, "Incorrect number of topPlayers for team")
+    }
+
+    // MARK: - Failing cases
+
+    func testThrowsError_GivenIncorrectIdTypeInJsonData() {
+        let jsonData = """
+            {
+                "id": "23",
+                "name": "",
+                "code": "",
+                "short_name": "",
+                "top_players": []
+            }
+        """.data(using: .utf8)!
+
+        XCTAssertThrowsError(try JSONDecoder().decode(Team.self, from: jsonData))
+    }
+
+    func testThrowsError_GivenMissingElementInJsonData() {
+        let jsonData = """
+            {
+                "id": 23,
+                "name": "",
+                "code": "",
+                "short_name": ""
+            }
+        """.data(using: .utf8)!
+
+        XCTAssertThrowsError(try JSONDecoder().decode(Team.self, from: jsonData))
     }
 }

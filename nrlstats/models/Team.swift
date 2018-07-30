@@ -10,4 +10,14 @@ import Foundation
 
 struct Team: Decodable {
     let id: Int
+    let name: String
+    let code: String
+    let shortName: String
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case code
+        case shortName = "short_name"
+    }
 }

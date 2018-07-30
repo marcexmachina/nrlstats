@@ -37,5 +37,17 @@ class LastMatchStatsTests: XCTestCase {
         let stats = try? JSONDecoder().decode(LastMatchStats.self, from: jsonData)
         XCTAssert(stats?.matchStats["testString"] as! String == "TestString", "Incorrect value for testString")
     }
+
+    func testNullValuesIgnored() {
+        let jsonData = """
+        {
+            "errors": 1,
+            "field_goal_attempts": null
+        }
+        """.data(using: .utf8)!
+
+        let stats = try? JSONDecoder().decode(LastMatchStats.self, from: jsonData)
+        XCTAssertNil(stats?.matchStats["field_goal_attempts"], "Null value not ignored")
+    }
     
 }

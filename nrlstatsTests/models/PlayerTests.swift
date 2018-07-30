@@ -109,6 +109,134 @@ class PlayerTests: XCTestCase {
         XCTAssert(player?.jumperNumber == 7, "Incorrect jumperNumber for player")
     }
 
+    func testSurname_GivenJsonData() {
+        let jsonData = """
+            {
+                  "id": 23,
+                  "surname": "Player",
+                  "position": "",
+                  "full_name": "",
+                  "short_name": "",
+                  "stat_value": 0,
+                  "jumper_number": 7
+            }
+        """.data(using: .utf8)!
+
+        let player = try? JSONDecoder().decode(Player.self, from: jsonData)
+        XCTAssert(player?.surname == "Player", "Incorrect surname for player")
+    }
+
+    func testDateOfBirth_GivenJsonData() {
+        let jsonData = """
+            {
+                  "id": 23,
+                  "position": "",
+                  "full_name": "",
+                  "date_of_birth": "1988-12-13",
+                  "short_name": "",
+                  "stat_value": 0,
+                  "jumper_number": 7
+            }
+        """.data(using: .utf8)!
+
+        let player = try? JSONDecoder().decode(Player.self, from: jsonData)
+        XCTAssert(player?.dateOfBirth == "1988-12-13", "Incorrect dateOfBirth for player")
+    }
+
+    func testHeightCm_GivenJsonData() {
+        let jsonData = """
+            {
+                  "id": 23,
+                  "position": "",
+                  "full_name": "",
+                  "height_cm": 183,
+                  "short_name": "",
+                  "stat_value": 0,
+                  "jumper_number": 7
+            }
+        """.data(using: .utf8)!
+
+        let player = try? JSONDecoder().decode(Player.self, from: jsonData)
+        XCTAssert(player?.heightCm == 183, "Incorrect heightCm for player")
+    }
+
+    func testOtherNames_GivenJsonData() {
+        let jsonData = """
+            {
+                  "id": 23,
+                  "position": "",
+                  "full_name": "",
+                  "other_names": "Other",
+                  "short_name": "",
+                  "stat_value": 0,
+                  "jumper_number": 7
+            }
+        """.data(using: .utf8)!
+
+        let player = try? JSONDecoder().decode(Player.self, from: jsonData)
+        XCTAssert(player?.otherNames == "Other", "Incorrect otherNames for player")
+    }
+
+    func testWeightKg_GivenJsonData() {
+        let jsonData = """
+            {
+                  "id": 23,
+                  "position": "",
+                  "full_name": "",
+                  "weight_kg": 99,
+                  "short_name": "",
+                  "stat_value": 0,
+                  "jumper_number": 7
+            }
+        """.data(using: .utf8)!
+
+        let player = try? JSONDecoder().decode(Player.self, from: jsonData)
+        XCTAssert(player?.weightKg == 99, "Incorrect otherNames for player")
+    }
+
+    func testLastMatchId_GivenJsonData() {
+        let jsonData = """
+            {
+                  "id": 23,
+                  "position": "",
+                  "full_name": "",
+                  "last_match_id": "NRL1",
+                  "short_name": "",
+                  "stat_value": 0,
+                  "jumper_number": 7
+            }
+        """.data(using: .utf8)!
+
+        let player = try? JSONDecoder().decode(Player.self, from: jsonData)
+        XCTAssert(player?.lastMatchId == "NRL1", "Incorrect lastMatchId for player")
+    }
+
+    func testCareerStats_GivenJsonData() {
+        let stats = """
+            {
+                "games": 0,
+                "points": 0,
+                "tries": 0,
+                "win_percentage": 55.3
+            }
+        """
+
+        let jsonData = """
+            {
+                  "id": 23,
+                  "position": "",
+                  "full_name": "",
+                  "career_stats": \(stats),
+                  "short_name": "",
+                  "stat_value": 0,
+                  "jumper_number": 7
+            }
+        """.data(using: .utf8)!
+
+        let player = try? JSONDecoder().decode(Player.self, from: jsonData)
+        XCTAssertNotNil(player?.careerStats, "Career stats is nil")
+    }
+
     // MARK: - Failing cases
 
     func testThrowsError_GivenIncorrectIdTypeInJsonData() {

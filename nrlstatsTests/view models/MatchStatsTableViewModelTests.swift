@@ -11,9 +11,6 @@ import XCTest
 
 class MatchStatsTableViewModelTests: XCTestCase {
 
-    var sut: MatchStatsTableViewModel?
-    var networkManager: MockNetworkManager?
-
     class MockNetworkManager: NetworkManagerProtocol {
         var isGetMatchStatsCalled = false
 
@@ -33,6 +30,9 @@ class MatchStatsTableViewModelTests: XCTestCase {
         }
 
     }
+
+    var sut: MatchStatsTableViewModel?
+    var networkManager: MockNetworkManager?
     
     override func setUp() {
         super.setUp()

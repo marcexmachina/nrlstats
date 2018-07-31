@@ -41,6 +41,7 @@
 		98C89E7321108E6F00F8344C /* StatsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C89E7221108E6F00F8344C /* StatsApi.swift */; };
 		98C89E75211096FE00F8344C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C89E74211096FE00F8344C /* Constants.swift */; };
 		98C89E772110AA0B00F8344C /* PlayerStatsTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C89E762110AA0B00F8344C /* PlayerStatsTableViewCellModel.swift */; };
+		98C89E792110B8E800F8344C /* PlayerStatViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C89E782110B8E800F8344C /* PlayerStatViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		98C89E7221108E6F00F8344C /* StatsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsApi.swift; sourceTree = "<group>"; };
 		98C89E74211096FE00F8344C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		98C89E762110AA0B00F8344C /* PlayerStatsTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatsTableViewCellModel.swift; sourceTree = "<group>"; };
+		98C89E782110B8E800F8344C /* PlayerStatViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 			children = (
 				98C89E5E2110846F00F8344C /* MatchStatsTableViewModel.swift */,
 				98C89E762110AA0B00F8344C /* PlayerStatsTableViewCellModel.swift */,
+				98C89E782110B8E800F8344C /* PlayerStatViewViewModel.swift */,
 			);
 			path = "view models";
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 			files = (
 				98C89E592110747200F8344C /* PlayerStatsTableViewCell.swift in Sources */,
 				98C89E6D21108AF400F8344C /* NetworkError.swift in Sources */,
+				98C89E792110B8E800F8344C /* PlayerStatViewViewModel.swift in Sources */,
 				9813EF6D210F2CD500C06842 /* Player.swift in Sources */,
 				98C89E6921108A4700F8344C /* HTTPMethod.swift in Sources */,
 				98C89E7121108C1300F8344C /* Router.swift in Sources */,

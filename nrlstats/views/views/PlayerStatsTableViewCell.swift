@@ -11,16 +11,16 @@ import UIKit
 class PlayerStatsTableViewCell: UITableViewCell {
     @IBOutlet weak var playerAStatView: PlayerStatView!
     @IBOutlet weak var playerBStatView: PlayerStatView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    var viewModel: PlayerStatsTableViewCellModel!
 
-        // Configure the view for the selected state
+    func configure() {
+        contentView.addSubview(playerAStatView)
+        contentView.addSubview(playerBStatView)
+        playerAStatView.translatesAutoresizingMaskIntoConstraints = false
+        playerBStatView.translatesAutoresizingMaskIntoConstraints = false
+        playerAStatView.viewModel = viewModel.playerAStatViewModel()
+        playerBStatView.viewModel = viewModel.playerBStatViewModel()
     }
     
 }

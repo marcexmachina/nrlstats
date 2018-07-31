@@ -51,4 +51,17 @@ class MatchStatsTableViewModel {
     func numberOfRowsInSection(section: Int) -> Int {
         return matchStats?[section].teamA.topPlayers.count ?? 0 
     }
+
+    func titleForHeaderInSection(section: Int) -> String {
+        return matchStats?[section].statType.replacingOccurrences(of: "_", with: " ").uppercased() ?? ""
+    }
+
+    func viewModelForCell(at indexPath: IndexPath) -> PlayerStatsTableViewCellModel? {
+        guard let playerA = matchStats?[indexPath.section].teamA.topPlayers[indexPath.row],
+            let playerB = matchStats?[indexPath.section].teamB.topPlayers[indexPath.row] else {
+                return nil
+        }
+
+        return PlayerStatsTableViewCellModel(playerA: playerA, playerB: playerB)
+    }
 }

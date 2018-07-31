@@ -20,6 +20,9 @@ class TeamComparisonTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib(nibName: "PlayerStatsTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = UITableViewAutomaticDimension
         setupBindings()
         viewModel.load()
     }
@@ -42,19 +45,34 @@ class TeamComparisonTableViewController: UITableViewController {
     // MARK: -  UITableViewDataSource
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        print("NumberOfSections:: \(viewModel.numberOfSections)")
         return viewModel.numberOfSections
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("NumberOfRowsInSection \(section):: \(viewModel.numberOfRowsInSection(section: section))")
         return viewModel.numberOfRowsInSection(section: section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Create cell PlayerStatsTableViewCell()
         // cell.configure()
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? PlayerStatsTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.viewModel = viewModel.viewModelForCell(at: indexPath)
+        cell.configure()
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.titleForHeaderInSection(section: section)
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 
 }

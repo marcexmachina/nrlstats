@@ -16,18 +16,21 @@ class Router<Endpoint: EndpointType>: NetworkRouter {
         task = session.dataTask(with: request) { data, response, error in
             completion(data, response, error)
         }
+        task?.resume()
     }
 
     // Private Methods
 
     private func buildRequest(from route: Endpoint) -> URLRequest {
-        var request = URLRequest(url: route.baseUrl.appendingPathComponent(route.path))
+        let urlString = "\(route.baseUrl)\(route.path)"
+        var request = URLRequest(url: URL(string: urlString)!)
         request.httpMethod = route.httpMethod.rawValue
 
         switch route.task {
         case .request:
             request.setValue("application/json", forHTTPHeaderField: "Content-type")
         }
+        print("Request URL:: \(request.url?.absoluteString)")
         return request
     }
 }

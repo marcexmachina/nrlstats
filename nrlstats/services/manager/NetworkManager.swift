@@ -8,7 +8,11 @@
 
 import Foundation
 
-class NetworkManager {
+protocol NetworkManagerProtocol {
+    func getMatchStats(matchId: String, completion: @escaping (_ matchStats: [MatchStat]?, _ error: String?) -> ())
+}
+
+class NetworkManager: NetworkManagerProtocol {
 
     var session: URLSession!
 
@@ -61,7 +65,7 @@ class NetworkManager {
                         return
                     }
                     do {
-                        let apiResponse = try JSONDecoder().decode([MatchStat], from: data)
+                        let apiResponse = try JSONDecoder().decode([MatchStat].self, from: data)
                         completion(apiResponse, nil)
                     } catch {
                         completion(nil, NetworkResponse.unableToDecode.rawValue)

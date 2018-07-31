@@ -25,32 +25,22 @@ struct LastMatchStats: Decodable {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.matchStats = container.decodeUnknownKeyValues()
+        self.matchStats = container.decodeKeyValues()
     }
 }
 
 extension KeyedDecodingContainer where Key == LastMatchStats.CodingKeys {
-    func decodeUnknownKeyValues() -> [String: Any]
-    {
+    func decodeKeyValues() -> [String: Any] {
         var data = [String: Any]()
 
         for key in allKeys {
             if let value = try? decode(String.self, forKey: key) {
                 data[key.stringValue] = value
-            }
-            else if let value = try? decode(Bool.self, forKey: key) {
+            } else if let value = try? decode(Int.self, forKey: key) {
                 data[key.stringValue] = value
-            }
-            else if let value = try? decode(Int.self, forKey: key) {
+            } else if let value = try? decode(Double.self, forKey: key) {
                 data[key.stringValue] = value
-            }
-            else if let value = try? decode(Double.self, forKey: key) {
-                data[key.stringValue] = value
-            }
-            else if let value = try? decode(Float.self, forKey: key) {
-                data[key.stringValue] = value
-            }
-            else {
+            } else {
                 NSLog("Key %@ type not supported", key.stringValue)
             }
         }

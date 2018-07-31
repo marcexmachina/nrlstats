@@ -19,13 +19,14 @@ class LastMatchStatsTests: XCTestCase {
             "intercepts": 0,
             "kicks": 0,
             "points": 0,
-            "testString": "TestString"
+            "test_double": 34.5,
+            "test_string": "TestString"
         }
     """.data(using: .utf8)!
 
     func testStatsMapToDictionary() {
         let stats = try? JSONDecoder().decode(LastMatchStats.self, from: jsonData)
-        XCTAssert(stats?.matchStats.count == 7, "Incorrect number of stats")
+        XCTAssert(stats?.matchStats.count == 8, "Incorrect number of stats")
     }
 
     func testErrors_GivenJsonData() {
@@ -35,7 +36,12 @@ class LastMatchStatsTests: XCTestCase {
 
     func testString_GivenJsonData() {
         let stats = try? JSONDecoder().decode(LastMatchStats.self, from: jsonData)
-        XCTAssert(stats?.matchStats["testString"] as! String == "TestString", "Incorrect value for testString")
+        XCTAssert(stats?.matchStats["test_string"] as! String == "TestString", "Incorrect value for test_string")
+    }
+
+    func testDouble_GivenJsonData() {
+        let stats = try? JSONDecoder().decode(LastMatchStats.self, from: jsonData)
+        XCTAssertNotNil(stats?.matchStats["test_double"] as! Double == 34.5, "Incorrect value for test_double")
     }
 
     func testNullValuesIgnored() {
@@ -49,5 +55,4 @@ class LastMatchStatsTests: XCTestCase {
         let stats = try? JSONDecoder().decode(LastMatchStats.self, from: jsonData)
         XCTAssertNil(stats?.matchStats["field_goal_attempts"], "Null value not ignored")
     }
-    
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TeamComparisonTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,23 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: -  UITableViewDataSource
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // return viewModel.numberOfSections
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // return viewModel.numberOfRowsInSection(_ section: Int)
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Create cell PlayerStatsTableViewCell()
+        // cell.configure()
+        return UITableViewCell()
+    }
 
 }
 

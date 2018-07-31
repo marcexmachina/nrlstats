@@ -27,6 +27,18 @@
 		98BCD70C210F1ADC007F657A /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD70B210F1ADC007F657A /* Team.swift */; };
 		98C89E542110488B00F8344C /* PlayerStatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98C89E532110488B00F8344C /* PlayerStatView.xib */; };
 		98C89E56211070A600F8344C /* PlayerStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C89E55211070A600F8344C /* PlayerStatView.swift */; };
+		98C89E592110747200F8344C /* PlayerStatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C89E572110747200F8344C /* PlayerStatsTableViewCell.swift */; };
+		98C89E5A2110747200F8344C /* PlayerStatsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98C89E582110747200F8344C /* PlayerStatsTableViewCell.xib */; };
+		98C89E5C211082E900F8344C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C89E5B211082E900F8344C /* NetworkManager.swift */; };
+		98C89E5F2110846F00F8344C /* MatchStatsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C89E5E2110846F00F8344C /* MatchStatsTableViewModel.swift */; };
+		98C89E622110848F00F8344C /* MatchStatsTableViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C89E612110848F00F8344C /* MatchStatsTableViewModelTests.swift */; };
+		98C89E67211089FC00F8344C /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C89E66211089FC00F8344C /* EndpointType.swift */; };
+		98C89E6921108A4700F8344C /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C89E6821108A4700F8344C /* HTTPMethod.swift */; };
+		98C89E6B21108AA900F8344C /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C89E6A21108AA900F8344C /* HTTPTask.swift */; };
+		98C89E6D21108AF400F8344C /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C89E6C21108AF400F8344C /* NetworkError.swift */; };
+		98C89E6F21108B9D00F8344C /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C89E6E21108B9D00F8344C /* NetworkRouter.swift */; };
+		98C89E7121108C1300F8344C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C89E7021108C1300F8344C /* Router.swift */; };
+		98C89E7321108E6F00F8344C /* StatsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C89E7221108E6F00F8344C /* StatsApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +76,18 @@
 		98BCD70B210F1ADC007F657A /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		98C89E532110488B00F8344C /* PlayerStatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerStatView.xib; sourceTree = "<group>"; };
 		98C89E55211070A600F8344C /* PlayerStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatView.swift; sourceTree = "<group>"; };
+		98C89E572110747200F8344C /* PlayerStatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatsTableViewCell.swift; sourceTree = "<group>"; };
+		98C89E582110747200F8344C /* PlayerStatsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerStatsTableViewCell.xib; sourceTree = "<group>"; };
+		98C89E5B211082E900F8344C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		98C89E5E2110846F00F8344C /* MatchStatsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchStatsTableViewModel.swift; sourceTree = "<group>"; };
+		98C89E612110848F00F8344C /* MatchStatsTableViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchStatsTableViewModelTests.swift; sourceTree = "<group>"; };
+		98C89E66211089FC00F8344C /* EndpointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
+		98C89E6821108A4700F8344C /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		98C89E6A21108AA900F8344C /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		98C89E6C21108AF400F8344C /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		98C89E6E21108B9D00F8344C /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		98C89E7021108C1300F8344C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		98C89E7221108E6F00F8344C /* StatsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +111,9 @@
 		98289200210FBAF800CFAF0D /* services */ = {
 			isa = PBXGroup;
 			children = (
+				98C89E65211089D700F8344C /* service */,
+				98C89E64211089D200F8344C /* manager */,
+				98C89E63211089CA00F8344C /* endpoint */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -113,8 +140,9 @@
 			isa = PBXGroup;
 			children = (
 				98C89E4E2110478F00F8344C /* views */,
-				98289200210FBAF800CFAF0D /* services */,
+				98C89E5D2110844D00F8344C /* view models */,
 				98BCD70A210F1ACB007F657A /* models */,
+				98289200210FBAF800CFAF0D /* services */,
 				984DAB94210C4DDB00CF001F /* AppDelegate.swift */,
 				984DAB98210C4DDB00CF001F /* Main.storyboard */,
 				984DAB9B210C4DDD00CF001F /* Assets.xcassets */,
@@ -127,6 +155,7 @@
 		984DABA8210C4DDD00CF001F /* nrlstatsTests */ = {
 			isa = PBXGroup;
 			children = (
+				98C89E602110847C00F8344C /* view models */,
 				98BCD704210F14C6007F657A /* models */,
 				984DABA9210C4DDD00CF001F /* nrlstatsTests.swift */,
 				984DABAB210C4DDD00CF001F /* Info.plist */,
@@ -182,8 +211,55 @@
 			children = (
 				98C89E532110488B00F8344C /* PlayerStatView.xib */,
 				98C89E55211070A600F8344C /* PlayerStatView.swift */,
+				98C89E572110747200F8344C /* PlayerStatsTableViewCell.swift */,
+				98C89E582110747200F8344C /* PlayerStatsTableViewCell.xib */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		98C89E5D2110844D00F8344C /* view models */ = {
+			isa = PBXGroup;
+			children = (
+				98C89E5E2110846F00F8344C /* MatchStatsTableViewModel.swift */,
+			);
+			path = "view models";
+			sourceTree = "<group>";
+		};
+		98C89E602110847C00F8344C /* view models */ = {
+			isa = PBXGroup;
+			children = (
+				98C89E612110848F00F8344C /* MatchStatsTableViewModelTests.swift */,
+			);
+			path = "view models";
+			sourceTree = "<group>";
+		};
+		98C89E63211089CA00F8344C /* endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				98C89E7221108E6F00F8344C /* StatsApi.swift */,
+			);
+			path = endpoint;
+			sourceTree = "<group>";
+		};
+		98C89E64211089D200F8344C /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				98C89E5B211082E900F8344C /* NetworkManager.swift */,
+			);
+			path = manager;
+			sourceTree = "<group>";
+		};
+		98C89E65211089D700F8344C /* service */ = {
+			isa = PBXGroup;
+			children = (
+				98C89E6821108A4700F8344C /* HTTPMethod.swift */,
+				98C89E66211089FC00F8344C /* EndpointType.swift */,
+				98C89E6A21108AA900F8344C /* HTTPTask.swift */,
+				98C89E6C21108AF400F8344C /* NetworkError.swift */,
+				98C89E6E21108B9D00F8344C /* NetworkRouter.swift */,
+				98C89E7021108C1300F8344C /* Router.swift */,
+			);
+			path = service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +346,7 @@
 				984DAB9F210C4DDD00CF001F /* LaunchScreen.storyboard in Resources */,
 				984DAB9C210C4DDD00CF001F /* Assets.xcassets in Resources */,
 				984DAB9A210C4DDB00CF001F /* Main.storyboard in Resources */,
+				98C89E5A2110747200F8344C /* PlayerStatsTableViewCell.xib in Resources */,
 				98C89E542110488B00F8344C /* PlayerStatView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,13 +365,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98C89E592110747200F8344C /* PlayerStatsTableViewCell.swift in Sources */,
+				98C89E6D21108AF400F8344C /* NetworkError.swift in Sources */,
 				9813EF6D210F2CD500C06842 /* Player.swift in Sources */,
+				98C89E6921108A4700F8344C /* HTTPMethod.swift in Sources */,
+				98C89E7121108C1300F8344C /* Router.swift in Sources */,
 				98BCD70C210F1ADC007F657A /* Team.swift in Sources */,
 				984DAB97210C4DDB00CF001F /* TeamComparisonViewController.swift in Sources */,
+				98C89E5C211082E900F8344C /* NetworkManager.swift in Sources */,
+				98C89E6B21108AA900F8344C /* HTTPTask.swift in Sources */,
 				9813EF73210F32BF00C06842 /* MatchStat.swift in Sources */,
 				98C89E56211070A600F8344C /* PlayerStatView.swift in Sources */,
 				9813EF79210F468500C06842 /* LastMatchStats.swift in Sources */,
+				98C89E67211089FC00F8344C /* EndpointType.swift in Sources */,
 				9813EF7B210F491800C06842 /* SeriesSeasonStats.swift in Sources */,
+				98C89E7321108E6F00F8344C /* StatsApi.swift in Sources */,
+				98C89E5F2110846F00F8344C /* MatchStatsTableViewModel.swift in Sources */,
+				98C89E6F21108B9D00F8344C /* NetworkRouter.swift in Sources */,
 				984DAB95210C4DDB00CF001F /* AppDelegate.swift in Sources */,
 				9813EF75210F408A00C06842 /* CareerStats.swift in Sources */,
 			);
@@ -305,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98BCD706210F14FB007F657A /* TeamTests.swift in Sources */,
+				98C89E622110848F00F8344C /* MatchStatsTableViewModelTests.swift in Sources */,
 				9813EF7D210F4CEF00C06842 /* SeriesSeasonStatsTests.swift in Sources */,
 				9813EF6F210F2E1300C06842 /* PlayerTests.swift in Sources */,
 				984DABAA210C4DDD00CF001F /* nrlstatsTests.swift in Sources */,

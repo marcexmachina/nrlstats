@@ -15,15 +15,17 @@ class PlayerStatView: UIView {
     @IBOutlet weak var positionValueLabel: UILabel!
     @IBOutlet weak var statValueLabel: UILabel!
     @IBOutlet var playerStatView: UIView!
-    
-    var viewModel: PlayerStatViewViewModel! {
+
+    // MARK: - Properties
+
+    var viewModel: PlayerStatViewViewModel? {
         didSet {
-            nameValueLabel.text = viewModel.shortName
-            numberValueLabel.text = viewModel.jumperNumber
-            positionValueLabel.text = viewModel.position
-            statValueLabel.text = viewModel.statValue
+            bind()
+            viewModel?.load()
         }
     }
+
+    // MARK: - Lifecycle
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,10 +37,30 @@ class PlayerStatView: UIView {
         commonInit()
     }
 
+    // MARK: - Private Methods
+
     private func commonInit() {
         Bundle.main.loadNibNamed("PlayerStatView", owner: self, options: nil)
         addSubview(playerStatView)
         playerStatView.frame = self.bounds
         playerStatView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+    }
+
+    private func bind() {
+        viewModel?.onShortNameChange = { [weak self] in
+            self?.nameValueLabel.text = self?.viewModel?.shortName
+        }
+
+        viewModel?.onJumperNumberChange = { [weak self] in
+            self?.numberValueLabel.text = self?.viewModel?.jumperNumber
+        }
+
+        viewModel?.onPositionChange = { [weak self] in
+            self?.positionValueLabel.text = self?.viewModel?.position
+        }
+
+        viewModel?.onStatValueChange = { [weak self] in
+            self?.statValueLabel.text = self?.viewModel?.statValue
+        }
     }
 }

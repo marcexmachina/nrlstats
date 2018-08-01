@@ -21,8 +21,6 @@ class TeamComparisonTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "PlayerStatsTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = UITableViewAutomaticDimension
         setupBindings()
         viewModel.load()
     }
@@ -53,8 +51,6 @@ class TeamComparisonTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Create cell PlayerStatsTableViewCell()
-        // cell.configure()
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? PlayerStatsTableViewCell else {
             return UITableViewCell()
         }

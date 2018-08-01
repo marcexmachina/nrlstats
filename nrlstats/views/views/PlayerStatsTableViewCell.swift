@@ -15,10 +15,6 @@ class PlayerStatsTableViewCell: UITableViewCell {
     var viewModel: PlayerStatsTableViewCellModel!
 
     func configure() {
-        contentView.addSubview(playerAStatView)
-        contentView.addSubview(playerBStatView)
-        playerAStatView.translatesAutoresizingMaskIntoConstraints = false
-        playerBStatView.translatesAutoresizingMaskIntoConstraints = false
         playerAStatView.viewModel = viewModel.playerAStatViewModel()
         playerBStatView.viewModel = viewModel.playerBStatViewModel()
     }

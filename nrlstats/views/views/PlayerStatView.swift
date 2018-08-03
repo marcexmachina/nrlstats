@@ -9,7 +9,12 @@
 import UIKit
 
 class PlayerStatView: UIView {
-    @IBOutlet weak var headshotImageView: UIImageView!
+    @IBOutlet weak var headshotImageView: UIImageView! {
+        didSet {
+            headshotImageView.isUserInteractionEnabled = true
+        }
+    }
+
     @IBOutlet weak var nameValueLabel: UILabel!
     @IBOutlet weak var numberValueLabel: UILabel!
     @IBOutlet weak var positionValueLabel: UILabel!
@@ -61,6 +66,13 @@ class PlayerStatView: UIView {
 
         viewModel?.onStatValueChange = { [weak self] in
             self?.statValueLabel.text = self?.viewModel?.statValue
+        }
+
+        viewModel?.onImageDataChange = { [weak self] in
+            guard let data = self?.viewModel?.imageData else { return }
+            DispatchQueue.main.async {
+                self?.headshotImageView.image = UIImage(data: data)
+            }
         }
     }
 }

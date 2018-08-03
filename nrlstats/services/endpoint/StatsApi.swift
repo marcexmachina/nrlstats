@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum StatsApi: EndpointType {
+enum StatsApi: EndpointType {
     case matchStats(match: String)
     case playerStats(teamId: Int, playerId: Int)
 

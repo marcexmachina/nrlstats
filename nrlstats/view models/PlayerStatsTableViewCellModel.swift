@@ -13,10 +13,12 @@ class PlayerStatsTableViewCellModel {
     // MARK: - Properties
     var playerA: Player?
     var playerB: Player?
+    var networkManager: NetworkManagerProtocol
 
-    init(playerA: Player, playerB: Player) {
+    init(playerA: Player, playerB: Player, networkManager: NetworkManagerProtocol) {
         self.playerA = playerA
         self.playerB = playerB
+        self.networkManager = networkManager
     }
 
     // MARK: - Methods
@@ -25,13 +27,13 @@ class PlayerStatsTableViewCellModel {
         guard let playerA = playerA else {
             return nil
         }
-        return PlayerStatViewViewModel(player: playerA)
+        return PlayerStatViewViewModel(player: playerA, networkManager: networkManager)
     }
 
     func playerBStatViewModel() -> PlayerStatViewViewModel? {
         guard let playerB = playerB else {
             return nil
         }
-        return PlayerStatViewViewModel(player: playerB)
+        return PlayerStatViewViewModel(player: playerB, networkManager: networkManager)
     }
 }

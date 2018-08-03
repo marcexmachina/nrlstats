@@ -11,26 +11,6 @@ import XCTest
 
 class MatchStatsTableViewModelTests: XCTestCase {
 
-    class MockNetworkManager: NetworkManagerProtocol {
-        var isGetMatchStatsCalled = false
-
-        var completeClosure: (([MatchStat]?, String?) -> ())!
-
-        func getMatchStats(matchId: String, completion: @escaping ([MatchStat]?, String?) -> ()) {
-            isGetMatchStatsCalled = true
-            completeClosure = completion
-        }
-
-        func fetchSuccess() {
-            completeClosure([MatchStat](), nil)
-        }
-
-        func fetchFail(error: String) {
-            completeClosure(nil, error)
-        }
-
-    }
-
     var sut: MatchStatsTableViewModel?
     var networkManager: MockNetworkManager?
     
@@ -51,11 +31,10 @@ class MatchStatsTableViewModelTests: XCTestCase {
         XCTAssert(networkManager!.isGetMatchStatsCalled)
     }
 
-    func testErrorMessage_GivenNetworkManagerCallFails() {
+    func testStatsApiErrorMessage_GivenNetworkManagerCallFails() {
         let errorMessage = "Failed call"
         sut?.load()
-        networkManager?.fetchFail(error: errorMessage)
+        networkManager?.fetchStatsFail(error: errorMessage)
         XCTAssert(sut?.fetchError == errorMessage)
     }
-    
 }

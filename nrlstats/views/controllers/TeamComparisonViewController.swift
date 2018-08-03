@@ -12,8 +12,12 @@ class TeamComparisonTableViewController: UITableViewController {
 
     // MARK: - Private properties
 
+    lazy private var networkManager: NetworkManager = {
+        return NetworkManager(session: URLSession.shared)
+    }()
+
     lazy private var viewModel: MatchStatsTableViewModel = {
-        return MatchStatsTableViewModel(networkManager: NetworkManager(session: URLSession.shared))
+        return MatchStatsTableViewModel(networkManager: networkManager)
     }()
 
     // MARK: - Lifecycle

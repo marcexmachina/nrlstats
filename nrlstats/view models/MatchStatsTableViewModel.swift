@@ -12,11 +12,11 @@ class MatchStatsTableViewModel {
 
     // MARK: - Properties
 
-    var networkManager: NetworkManagerProtocol!
+    var networkManager: NetworkManagerProtocol
 
     var matchStats: [MatchStat]? {
         didSet {
-            self.onModelChange?()
+            onModelChange?()
         }
     }
 
@@ -25,7 +25,9 @@ class MatchStatsTableViewModel {
     }
 
     var isLoading: Bool = false
+    
     var onModelChange: (() -> Void)?
+
     var fetchError: String?
 
     // MARK: - Lifecycle
@@ -62,6 +64,6 @@ class MatchStatsTableViewModel {
                 return nil
         }
 
-        return PlayerStatsTableViewCellModel(playerA: playerA, playerB: playerB)
+        return PlayerStatsTableViewCellModel(playerA: playerA, playerB: playerB, networkManager: networkManager)
     }
 }

@@ -8,7 +8,11 @@
 
 import UIKit
 
-class TeamComparisonTableViewController: UITableViewController {
+protocol ImageTapDelegate: class {
+    func didTapImageIn(statView: PlayerStatView)
+}
+
+class TeamComparisonTableViewController: UITableViewController, ImageTapDelegate {
 
     // MARK: - Private properties
 
@@ -29,11 +33,6 @@ class TeamComparisonTableViewController: UITableViewController {
         viewModel.load()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Private methods
 
     private func setupBindings() {
@@ -42,6 +41,17 @@ class TeamComparisonTableViewController: UITableViewController {
                 self?.tableView.reloadData()
             }
         }
+    }
+
+
+    // MARK: - ImageTapDelegate
+
+    func didTapImageIn(statView: PlayerStatView) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailTableViewController") as? DetailTableViewController else {
+            return
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     // MARK: -  UITableViewDataSource
@@ -55,11 +65,12 @@ class TeamComparisonTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? PlayerStatsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? PlayerStatsTableViewCell,
+            let playerStatsViewModel = viewModel.viewModelForCell(at: indexPath)else {
             return UITableViewCell()
         }
-        cell.viewModel = viewModel.viewModelForCell(at: indexPath)
-        cell.configure()
+
+        cell.configure(viewModel: playerStatsViewModel, tapDelegate: self)
         return cell
     }
 

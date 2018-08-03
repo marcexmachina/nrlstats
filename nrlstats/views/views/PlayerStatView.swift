@@ -9,6 +9,7 @@
 import UIKit
 
 class PlayerStatView: UIView {
+
     @IBOutlet weak var headshotImageView: UIImageView! {
         didSet {
             headshotImageView.isUserInteractionEnabled = true
@@ -22,6 +23,8 @@ class PlayerStatView: UIView {
     @IBOutlet var playerStatView: UIView!
 
     // MARK: - Properties
+
+    weak var tapDelegate: ImageTapDelegate?
 
     var viewModel: PlayerStatViewViewModel? {
         didSet {
@@ -49,6 +52,8 @@ class PlayerStatView: UIView {
         addSubview(playerStatView)
         playerStatView.frame = self.bounds
         playerStatView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+
+        headshotImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PlayerStatView.imageTapped)))
     }
 
     private func bind() {
@@ -74,5 +79,9 @@ class PlayerStatView: UIView {
                 self?.headshotImageView.image = UIImage(data: data)
             }
         }
+    }
+
+    @objc private func imageTapped() {
+        tapDelegate?.didTapImageIn(statView: self)
     }
 }

@@ -70,7 +70,7 @@ class PlayerStatViewViewModel {
     }
 
     func detailedPlayerStatsViewModel() -> DetailedPlayerStatsViewModel {
-        return detailedPlayerStatsViewModel()
+        return DetailedPlayerStatsViewModel(player: player)
     }
 
     // MARK: - Private Methods

@@ -12,11 +12,14 @@ class PlayerStatsTableViewCell: UITableViewCell {
     @IBOutlet weak var playerAStatView: PlayerStatView!
     @IBOutlet weak var playerBStatView: PlayerStatView!
 
-    var viewModel: PlayerStatsTableViewCellModel!
+    weak var tapDelegate: ImageTapDelegate?
 
-    func configure() {
+    func configure(viewModel: PlayerStatsTableViewCellModel, tapDelegate: ImageTapDelegate) {
+        self.tapDelegate = tapDelegate
         playerAStatView.viewModel = viewModel.playerAStatViewModel()
         playerBStatView.viewModel = viewModel.playerBStatViewModel()
+        playerAStatView.tapDelegate = tapDelegate
+        playerBStatView.tapDelegate = tapDelegate
     }
     
 }

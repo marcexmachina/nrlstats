@@ -21,6 +21,7 @@
 		98399D8A2113F9CA0060B7D5 /* PlayerStatViewViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98399D892113F9CA0060B7D5 /* PlayerStatViewViewModelTests.swift */; };
 		98399D8C211414FC0060B7D5 /* DetailedPlayerStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98399D8B211414FC0060B7D5 /* DetailedPlayerStatsViewModel.swift */; };
 		98399D8E21142EB10060B7D5 /* StatCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98399D8D21142EB10060B7D5 /* StatCellViewModel.swift */; };
+		98399D90211438920060B7D5 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98399D8F211438920060B7D5 /* DetailTableViewController.swift */; };
 		984DAB95210C4DDB00CF001F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984DAB94210C4DDB00CF001F /* AppDelegate.swift */; };
 		984DAB97210C4DDB00CF001F /* TeamComparisonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984DAB96210C4DDB00CF001F /* TeamComparisonViewController.swift */; };
 		984DAB9A210C4DDB00CF001F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 984DAB98210C4DDB00CF001F /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 		98399D892113F9CA0060B7D5 /* PlayerStatViewViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatViewViewModelTests.swift; sourceTree = "<group>"; };
 		98399D8B211414FC0060B7D5 /* DetailedPlayerStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPlayerStatsViewModel.swift; sourceTree = "<group>"; };
 		98399D8D21142EB10060B7D5 /* StatCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCellViewModel.swift; sourceTree = "<group>"; };
+		98399D8F211438920060B7D5 /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		984DAB91210C4DDB00CF001F /* nrlstats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nrlstats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		984DAB94210C4DDB00CF001F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		984DAB96210C4DDB00CF001F /* TeamComparisonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamComparisonViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				984DAB96210C4DDB00CF001F /* TeamComparisonViewController.swift */,
+				98399D8F211438920060B7D5 /* DetailTableViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				98C89E7321108E6F00F8344C /* StatsApi.swift in Sources */,
 				98C89E75211096FE00F8344C /* Constants.swift in Sources */,
 				98C89E5F2110846F00F8344C /* MatchStatsTableViewModel.swift in Sources */,
+				98399D90211438920060B7D5 /* DetailTableViewController.swift in Sources */,
 				98C89E6F21108B9D00F8344C /* NetworkRouter.swift in Sources */,
 				984DAB95210C4DDB00CF001F /* AppDelegate.swift in Sources */,
 				9813EF75210F408A00C06842 /* CareerStats.swift in Sources */,

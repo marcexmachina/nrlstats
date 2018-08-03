@@ -9,29 +9,43 @@
 import Foundation
 
 class PlayerStatViewViewModel {
+
+    // MARK: - Private Properties
+
+    private var networkManager: NetworkManagerProtocol
+
+    // MARK: - Properties
+
     var player: Player
 
-    var shortName: String? = nil {
+    var shortName: String? {
         didSet {
-            self.onShortNameChange?()
+            onShortNameChange?()
         }
     }
 
     var jumperNumber: String? {
         didSet {
-            self.onJumperNumberChange?()
+            onJumperNumberChange?()
         }
     }
 
     var position: String? {
         didSet {
-            self.onPositionChange?()
+            onPositionChange?()
         }
     }
 
     var statValue: String? {
         didSet {
-            self.onStatValueChange?()
+            onStatValueChange?()
+        }
+    }
+
+    var imageData: Data? {
+        didSet {
+            player.imageData = imageData
+            onImageDataChange?()
         }
     }
 
@@ -39,9 +53,13 @@ class PlayerStatViewViewModel {
     var onJumperNumberChange: (() -> Void)?
     var onPositionChange: (() -> Void)?
     var onStatValueChange: (() -> Void)?
+    var onImageDataChange: (() -> Void)?
 
-    init(player: Player) {
+    var fetchError: String?
+
+    init(player: Player, networkManager: NetworkManagerProtocol) {
         self.player = player
+        self.networkManager = networkManager
     }
 
     func load() {
@@ -49,5 +67,40 @@ class PlayerStatViewViewModel {
         jumperNumber = "\(player.jumperNumber)"
         position = player.position
         statValue = "\(player.statValue)"
+        getPlayerHeadshotData()
     }
+
+    // MARK: - Private Methods
+
+    private func getPlayerHeadshotData() {
+        networkManager.getPlayerImageData(playerId: player.id) { [weak self] data, error in
+            guard let data = data else {
+                self?.fetchError = error
+                return
+            }
+            self?.imageData = data
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -24,6 +24,7 @@ struct Player: Decodable {
     let seriesSeasonStats: SeriesSeasonStats?
     let statValue: Int
     let jumperNumber: Int
+    var imageData: Data? = nil
 
     enum CodingKeys: String, CodingKey {
         case id

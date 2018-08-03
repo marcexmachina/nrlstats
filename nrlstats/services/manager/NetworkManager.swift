@@ -10,6 +10,7 @@ import Foundation
 
 protocol NetworkManagerProtocol {
     func getMatchStats(matchId: String, completion: @escaping (_ matchStats: [MatchStat]?, _ error: String?) -> ())
+    func getPlayerImageData(playerId: Int, completion: @escaping(_ imageData: Data?, _ error: String?) -> ())
 }
 
 class NetworkManager: NetworkManagerProtocol {
@@ -35,7 +36,8 @@ class NetworkManager: NetworkManagerProtocol {
 
     // MARK: - Private Properties
 
-    private let router = Router<StatsApi>()
+    private let statsRouter = Router<StatsApi>()
+    private let mediaRouter = Router<MediaApi>()
 
     // MARK: - Methods
 
@@ -51,7 +53,7 @@ class NetworkManager: NetworkManagerProtocol {
     }
 
     func getMatchStats(matchId: String, completion: @escaping (_ matchStats: [MatchStat]?, _ error: String?) -> ()) {
-        router.request(.matchStats(match: matchId), session: session) { data, response, error in
+        statsRouter.request(.matchStats(match: matchId), session: session) { data, response, error in
             if error != nil {
                 completion(nil, "Problem performing request")
             }
@@ -70,6 +72,28 @@ class NetworkManager: NetworkManagerProtocol {
                     } catch {
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }
+                case .failure(let error):
+                    completion(nil, error)
+                }
+            }
+        }
+    }
+
+    func getPlayerImageData(playerId: Int, completion: @escaping(_ imageData: Data?, _ error: String?) -> ()) {
+        mediaRouter.request(.playerHeadshot(playerId: playerId), session: session) { data, response, error in
+            if error != nil {
+                completion(nil, "Problem performing request")
+            }
+
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let data = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    completion(data, nil)
                 case .failure(let error):
                     completion(nil, error)
                 }

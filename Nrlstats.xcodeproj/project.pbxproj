@@ -19,6 +19,8 @@
 		9813EF7F210F515A00C06842 /* LastMatchStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9813EF7E210F515A00C06842 /* LastMatchStatsTests.swift */; };
 		98399D882113E6F30060B7D5 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98399D872113E6F30060B7D5 /* MockNetworkManager.swift */; };
 		98399D8A2113F9CA0060B7D5 /* PlayerStatViewViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98399D892113F9CA0060B7D5 /* PlayerStatViewViewModelTests.swift */; };
+		98399D8C211414FC0060B7D5 /* DetailedPlayerStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98399D8B211414FC0060B7D5 /* DetailedPlayerStatsViewModel.swift */; };
+		98399D8E21142EB10060B7D5 /* StatCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98399D8D21142EB10060B7D5 /* StatCellViewModel.swift */; };
 		984DAB95210C4DDB00CF001F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984DAB94210C4DDB00CF001F /* AppDelegate.swift */; };
 		984DAB97210C4DDB00CF001F /* TeamComparisonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984DAB96210C4DDB00CF001F /* TeamComparisonViewController.swift */; };
 		984DAB9A210C4DDB00CF001F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 984DAB98210C4DDB00CF001F /* Main.storyboard */; };
@@ -70,6 +72,8 @@
 		9813EF7E210F515A00C06842 /* LastMatchStatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastMatchStatsTests.swift; sourceTree = "<group>"; };
 		98399D872113E6F30060B7D5 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		98399D892113F9CA0060B7D5 /* PlayerStatViewViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatViewViewModelTests.swift; sourceTree = "<group>"; };
+		98399D8B211414FC0060B7D5 /* DetailedPlayerStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPlayerStatsViewModel.swift; sourceTree = "<group>"; };
+		98399D8D21142EB10060B7D5 /* StatCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCellViewModel.swift; sourceTree = "<group>"; };
 		984DAB91210C4DDB00CF001F /* nrlstats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nrlstats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		984DAB94210C4DDB00CF001F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		984DAB96210C4DDB00CF001F /* TeamComparisonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamComparisonViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +249,8 @@
 				98C89E5E2110846F00F8344C /* MatchStatsTableViewModel.swift */,
 				98C89E762110AA0B00F8344C /* PlayerStatsTableViewCellModel.swift */,
 				98C89E782110B8E800F8344C /* PlayerStatViewViewModel.swift */,
+				98399D8B211414FC0060B7D5 /* DetailedPlayerStatsViewModel.swift */,
+				98399D8D21142EB10060B7D5 /* StatCellViewModel.swift */,
 			);
 			path = "view models";
 			sourceTree = "<group>";
@@ -396,8 +402,10 @@
 				98C89E792110B8E800F8344C /* PlayerStatViewViewModel.swift in Sources */,
 				9813EF6D210F2CD500C06842 /* Player.swift in Sources */,
 				98C89E6921108A4700F8344C /* HTTPMethod.swift in Sources */,
+				98399D8C211414FC0060B7D5 /* DetailedPlayerStatsViewModel.swift in Sources */,
 				98C89E7121108C1300F8344C /* Router.swift in Sources */,
 				98BCD70C210F1ADC007F657A /* Team.swift in Sources */,
+				98399D8E21142EB10060B7D5 /* StatCellViewModel.swift in Sources */,
 				984DAB97210C4DDB00CF001F /* TeamComparisonViewController.swift in Sources */,
 				98C89E5C211082E900F8344C /* NetworkManager.swift in Sources */,
 				98C89E772110AA0B00F8344C /* PlayerStatsTableViewCellModel.swift in Sources */,

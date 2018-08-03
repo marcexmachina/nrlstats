@@ -13,10 +13,9 @@ class PlayerStatViewViewModel {
     // MARK: - Private Properties
 
     private var networkManager: NetworkManagerProtocol
+    private var player: Player
 
     // MARK: - Properties
-
-    var player: Player
 
     var shortName: String? {
         didSet {
@@ -70,6 +69,10 @@ class PlayerStatViewViewModel {
         getPlayerHeadshotData()
     }
 
+    func detailedPlayerStatsViewModel() -> DetailedPlayerStatsViewModel {
+        return detailedPlayerStatsViewModel()
+    }
+
     // MARK: - Private Methods
 
     private func getPlayerHeadshotData() {
@@ -81,26 +84,4 @@ class PlayerStatViewViewModel {
             self?.imageData = data
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -55,6 +55,8 @@
 		98F6F53021173BA30009C3CF /* DetailHeaderViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6F52F21173BA30009C3CF /* DetailHeaderViewTests.swift */; };
 		98F6F532211740590009C3CF /* PlayerStatViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6F531211740590009C3CF /* PlayerStatViewTests.swift */; };
 		98F6F5362117425A0009C3CF /* Player+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6F5352117425A0009C3CF /* Player+Extensions.swift */; };
+		98F6F53A2117BC980009C3CF /* match_stats.png in Resources */ = {isa = PBXBuildFile; fileRef = 98F6F5382117BC970009C3CF /* match_stats.png */; };
+		98F6F53B2117BC980009C3CF /* player_details.png in Resources */ = {isa = PBXBuildFile; fileRef = 98F6F5392117BC970009C3CF /* player_details.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,8 @@
 		98F6F52F21173BA30009C3CF /* DetailHeaderViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderViewTests.swift; sourceTree = "<group>"; };
 		98F6F531211740590009C3CF /* PlayerStatViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatViewTests.swift; sourceTree = "<group>"; };
 		98F6F5352117425A0009C3CF /* Player+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+Extensions.swift"; sourceTree = "<group>"; };
+		98F6F5382117BC970009C3CF /* match_stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = match_stats.png; sourceTree = "<group>"; };
+		98F6F5392117BC970009C3CF /* player_details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_details.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +194,7 @@
 				984DAB9D210C4DDD00CF001F /* LaunchScreen.storyboard */,
 				984DABA0210C4DDD00CF001F /* Info.plist */,
 				98C89E74211096FE00F8344C /* Constants.swift */,
+				98F6F5372117BC690009C3CF /* resources */,
 			);
 			path = nrlstats;
 			sourceTree = "<group>";
@@ -334,6 +339,15 @@
 			path = extensions;
 			sourceTree = "<group>";
 		};
+		98F6F5372117BC690009C3CF /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				98F6F5382117BC970009C3CF /* match_stats.png */,
+				98F6F5392117BC970009C3CF /* player_details.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -416,11 +430,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				98399D942114437B0060B7D5 /* DetailHeaderView.xib in Resources */,
+				98F6F53A2117BC980009C3CF /* match_stats.png in Resources */,
 				984DAB9F210C4DDD00CF001F /* LaunchScreen.storyboard in Resources */,
 				984DAB9C210C4DDD00CF001F /* Assets.xcassets in Resources */,
 				984DAB9A210C4DDB00CF001F /* Main.storyboard in Resources */,
 				98C89E5A2110747200F8344C /* PlayerStatsTableViewCell.xib in Resources */,
 				98C89E542110488B00F8344C /* PlayerStatView.xib in Resources */,
+				98F6F53B2117BC980009C3CF /* player_details.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

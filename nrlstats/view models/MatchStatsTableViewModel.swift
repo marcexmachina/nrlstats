@@ -10,9 +10,11 @@ import Foundation
 
 class MatchStatsTableViewModel {
 
-    // MARK: - Properties
+    // MARK: - Private Properties
 
     private var networkManager: NetworkManagerProtocol
+
+    // MARK: - Properties
 
     var matchStats: [MatchStat]? {
         didSet {
@@ -25,9 +27,7 @@ class MatchStatsTableViewModel {
     }
 
     var isLoading: Bool = false
-    
     var onModelChange: (() -> Void)?
-
     var fetchError: String?
 
     // MARK: - Lifecycle

@@ -20,14 +20,20 @@ class DetailedPlayerStatsViewModel {
         }
     }
 
+    // MARK: - Properties
+
     var onModelChange: (() -> Void)?
     var fetchError: String? = nil
     var numberOfSections: Int = 1
+
+    // MARK: - Lifecycle
 
     init(player: Player, networkManager: NetworkManagerProtocol) {
         self.player = player
         self.networkManager = networkManager
     }
+
+    // MARK: - Methods
 
     func load() {
         guard let teamId = player.teamId else { return }

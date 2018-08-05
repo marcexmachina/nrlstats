@@ -16,12 +16,6 @@ protocol NetworkManagerProtocol {
 
 class NetworkManager: NetworkManagerProtocol {
 
-    var session: URLSession!
-
-    init(session: URLSession) {
-        self.session = session
-    }
-
     enum NetworkResponse: String {
         case success
         case badRequest = "Bad request"
@@ -35,10 +29,20 @@ class NetworkManager: NetworkManagerProtocol {
         case failure(String)
     }
 
+    // MARK: Properties
+
+    var session: URLSession!
+
     // MARK: - Private Properties
 
     private let statsRouter = Router<StatsApi>()
     private let mediaRouter = Router<MediaApi>()
+
+    // MARK: - Lifecycle
+
+    init(session: URLSession) {
+        self.session = session
+    }
 
     // MARK: - Methods
 

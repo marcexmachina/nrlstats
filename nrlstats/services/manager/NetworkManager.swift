@@ -11,6 +11,7 @@ import Foundation
 protocol NetworkManagerProtocol {
     func getMatchStats(matchId: String, completion: @escaping (_ matchStats: [MatchStat]?, _ error: String?) -> ())
     func getPlayerImageData(playerId: Int, completion: @escaping(_ imageData: Data?, _ error: String?) -> ())
+    func getPlayerStats(teamId: Int, playerId: Int, completion: @escaping (_ matchStats: Player?, _ error: String?) -> ())
 }
 
 class NetworkManager: NetworkManagerProtocol {
@@ -68,6 +69,33 @@ class NetworkManager: NetworkManagerProtocol {
                     }
                     do {
                         let apiResponse = try JSONDecoder().decode([MatchStat].self, from: data)
+                        completion(apiResponse, nil)
+                    } catch {
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                case .failure(let error):
+                    completion(nil, error)
+                }
+            }
+        }
+    }
+
+    func getPlayerStats(teamId: Int, playerId: Int, completion: @escaping (_ player: Player?, _ error: String?) -> ()) {
+        statsRouter.request(.playerStats(teamId: teamId, playerId: playerId), session: session) { data, response, error in
+            if error != nil {
+                completion(nil, "Problem performing request")
+            }
+
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let data = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        let apiResponse = try JSONDecoder().decode(Player.self, from: data)
                         completion(apiResponse, nil)
                     } catch {
                         completion(nil, NetworkResponse.unableToDecode.rawValue)

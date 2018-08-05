@@ -8,9 +8,22 @@
 
 import Foundation
 
+struct Stat: Decodable {
+    var type: String
+    var value: String
+}
 struct LastMatchStats: Decodable {
 
-    let matchStats: [String: Any]
+    private var matchStatsDict: [String: Any]
+
+    var matchStats: [Stat] {
+        return matchStatsDict.reduce([Stat]()) {
+            var results = $0
+            let stat = Stat(type: $1.key, value: "\($1.value)")
+            results.append(stat)
+            return results
+        }
+    }
 
     fileprivate struct CodingKeys: CodingKey {
         var stringValue: String
@@ -25,7 +38,7 @@ struct LastMatchStats: Decodable {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.matchStats = container.decodeKeyValues()
+        self.matchStatsDict = container.decodeKeyValues()
     }
 }
 
@@ -41,7 +54,7 @@ extension KeyedDecodingContainer where Key == LastMatchStats.CodingKeys {
             } else if let value = try? decode(Double.self, forKey: key) {
                 data[key.stringValue] = value
             } else {
-                NSLog("Key %@ type not supported", key.stringValue)
+//                NSLog("Key %@ type not supported", key.stringValue)
             }
         }
         return data

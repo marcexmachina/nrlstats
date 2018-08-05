@@ -34,7 +34,7 @@ class MatchStatsTableViewModelTests: XCTestCase {
     func testStatsApiErrorMessage_GivenNetworkManagerCallFails() {
         let errorMessage = "Failed call"
         sut?.load()
-        networkManager?.fetchStatsFail(error: errorMessage)
+        networkManager?.fetchApiFailure(.matchStats, error: errorMessage)
         XCTAssert(sut?.fetchError == errorMessage)
     }
 }

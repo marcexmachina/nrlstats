@@ -14,7 +14,7 @@ class PlayerStatsTableViewCell: UITableViewCell {
 
     weak var tapDelegate: ImageTapDelegate?
 
-    func configure(viewModel: PlayerStatsTableViewCellModel, tapDelegate: ImageTapDelegate) {
+    func configure(viewModel: PlayerStatsTableViewCellViewModel, tapDelegate: ImageTapDelegate) {
         self.tapDelegate = tapDelegate
         playerAStatView.viewModel = viewModel.playerAStatViewModel()
         playerBStatView.viewModel = viewModel.playerBStatViewModel()

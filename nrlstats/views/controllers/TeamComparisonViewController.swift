@@ -28,7 +28,7 @@ class TeamComparisonTableViewController: UITableViewController, ImageTapDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: "PlayerStatsTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        tableView.register(UINib(nibName: "PlayerStatsTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIdentifiers.playersCell)
         setupBindings()
         viewModel.load()
     }
@@ -51,6 +51,7 @@ class TeamComparisonTableViewController: UITableViewController, ImageTapDelegate
         guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailTableViewController") as? DetailTableViewController else {
             return
         }
+        vc.viewModel = statView.viewModel?.detailedPlayerStatsViewModel()
         navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -65,8 +66,8 @@ class TeamComparisonTableViewController: UITableViewController, ImageTapDelegate
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? PlayerStatsTableViewCell,
-            let playerStatsViewModel = viewModel.viewModelForCell(at: indexPath)else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.playersCell) as? PlayerStatsTableViewCell,
+            let playerStatsViewModel = viewModel.viewModelForCell(at: indexPath) else {
             return UITableViewCell()
         }
 

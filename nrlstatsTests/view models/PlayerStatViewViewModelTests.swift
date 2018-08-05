@@ -40,7 +40,7 @@ class PlayerStatViewViewModelTests: XCTestCase {
     func testImageApiErrorMessage_GivenNetworkManagerCallFails() {
         let errorMessage = "Failed call"
         sut?.load()
-        networkManager?.fetchImageFail(error: errorMessage)
+        networkManager?.fetchApiFailure(.playerImage, error: errorMessage)
         XCTAssert(sut?.fetchError == errorMessage)
     }
 
@@ -90,11 +90,10 @@ extension Player {
                       otherNames: "Test",
                       weightKg: 70,
                       lastMatchId: "",
-                      careerStats: nil,
                       lastMatchStats: nil,
-                      seriesSeasonStats: nil,
                       statValue: 1,
                       jumperNumber: 1,
-                      imageData: nil)
+                      imageData: nil,
+                      teamId: 123)
     }
 }

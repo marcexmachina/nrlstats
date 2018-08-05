@@ -12,4 +12,9 @@ enum Constants {
     enum DefaultValues {
         static let matchId = "NRL20172101" // Hardcoding match ID for demo app purposes
     }
+
+    enum CellIdentifiers {
+        static let statCellId = "StatCell"
+        static let playersCell = "PlayersCell"
+    }
 }

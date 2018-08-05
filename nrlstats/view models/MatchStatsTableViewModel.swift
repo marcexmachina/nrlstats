@@ -12,7 +12,7 @@ class MatchStatsTableViewModel {
 
     // MARK: - Properties
 
-    var networkManager: NetworkManagerProtocol
+    private var networkManager: NetworkManagerProtocol
 
     var matchStats: [MatchStat]? {
         didSet {
@@ -58,12 +58,16 @@ class MatchStatsTableViewModel {
         return matchStats?[section].statType.replacingOccurrences(of: "_", with: " ").uppercased() ?? ""
     }
 
-    func viewModelForCell(at indexPath: IndexPath) -> PlayerStatsTableViewCellModel? {
-        guard let playerA = matchStats?[indexPath.section].teamA.topPlayers[indexPath.row],
-            let playerB = matchStats?[indexPath.section].teamB.topPlayers[indexPath.row] else {
-                return nil
+    func viewModelForCell(at indexPath: IndexPath) -> PlayerStatsTableViewCellViewModel? {
+        guard matchStats?[indexPath.section].teamA.topPlayers[indexPath.row] != nil, matchStats?[indexPath.section].teamB.topPlayers[indexPath.row] != nil else {
+            return nil
         }
+        var playerA = matchStats?[indexPath.section].teamA.topPlayers[indexPath.row]
+        var playerB = matchStats?[indexPath.section].teamB.topPlayers[indexPath.row]
 
-        return PlayerStatsTableViewCellModel(playerA: playerA, playerB: playerB, networkManager: networkManager)
+        // Safe to force unwrap here, have already guarded against nil above 
+        playerA!.teamId = matchStats?[indexPath.section].teamA.id
+        playerB!.teamId = matchStats?[indexPath.section].teamB.id
+        return PlayerStatsTableViewCellViewModel(playerA: playerA!, playerB: playerB!, networkManager: networkManager)
     }
 }

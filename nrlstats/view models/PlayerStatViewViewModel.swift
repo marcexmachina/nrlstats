@@ -56,21 +56,25 @@ class PlayerStatViewViewModel {
 
     var fetchError: String?
 
+    // MARK: - Lifecycle
+
     init(player: Player, networkManager: NetworkManagerProtocol) {
         self.player = player
         self.networkManager = networkManager
     }
 
+    // MARK: - Methods
+
     func load() {
         shortName = player.shortName
-        jumperNumber = "\(player.jumperNumber)"
+        jumperNumber = "\(player.jumperNumber ?? 0)"
         position = player.position
-        statValue = "\(player.statValue)"
+        statValue = "\(player.statValue ?? 0)"
         getPlayerHeadshotData()
     }
 
     func detailedPlayerStatsViewModel() -> DetailedPlayerStatsViewModel {
-        return DetailedPlayerStatsViewModel(player: player)
+        return DetailedPlayerStatsViewModel(player: player, networkManager: networkManager)
     }
 
     // MARK: - Private Methods

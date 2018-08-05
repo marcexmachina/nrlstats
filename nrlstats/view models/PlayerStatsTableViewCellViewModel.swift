@@ -8,9 +8,10 @@
 
 import Foundation
 
-class PlayerStatsTableViewCellModel {
+class PlayerStatsTableViewCellViewModel {
 
     // MARK: - Properties
+    
     var playerA: Player?
     var playerB: Player?
     var networkManager: NetworkManagerProtocol

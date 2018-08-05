@@ -19,12 +19,11 @@ struct Player: Decodable {
     let otherNames: String?
     let weightKg: Int?
     let lastMatchId: String?
-    let careerStats: CareerStats?
     let lastMatchStats: LastMatchStats?
-    let seriesSeasonStats: SeriesSeasonStats?
-    let statValue: Int
-    let jumperNumber: Int
+    let statValue: Int?
+    let jumperNumber: Int?
     var imageData: Data? = nil
+    var teamId: Int? = nil
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -37,9 +36,7 @@ struct Player: Decodable {
         case otherNames = "other_names"
         case weightKg = "weight_kg"
         case lastMatchId = "last_match_id"
-        case careerStats = "career_stats"
         case lastMatchStats = "last_match_stats"
-        case seriesSeasonStats = "series_season_stats"
         case statValue = "stat_value"
         case jumperNumber = "jumper_number"
     }

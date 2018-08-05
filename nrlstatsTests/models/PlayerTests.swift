@@ -211,32 +211,6 @@ class PlayerTests: XCTestCase {
         XCTAssert(player?.lastMatchId == "NRL1", "Incorrect lastMatchId for player")
     }
 
-    func testCareerStats_GivenJsonData() {
-        let stats = """
-            {
-                "games": 0,
-                "points": 0,
-                "tries": 0,
-                "win_percentage": 55.3
-            }
-        """
-
-        let jsonData = """
-            {
-                  "id": 23,
-                  "position": "",
-                  "full_name": "",
-                  "career_stats": \(stats),
-                  "short_name": "",
-                  "stat_value": 0,
-                  "jumper_number": 7
-            }
-        """.data(using: .utf8)!
-
-        let player = try? JSONDecoder().decode(Player.self, from: jsonData)
-//        XCTAssertNotNil(player?.careerStats, "Career stats is nil")
-    }
-
     // MARK: - Failing cases
 
     func testThrowsError_GivenIncorrectIdTypeInJsonData() {

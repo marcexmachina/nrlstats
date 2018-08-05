@@ -20,39 +20,12 @@ class DetailedPlayerStatsViewModel {
         }
     }
 
-    var imageData: Data? {
-        didSet {
-            player.imageData = imageData
-            onImageDataChange?()
-        }
-    }
-
-    var fullName: String {
-        didSet {
-            onFullNameChange?()
-        }
-    }
-
-    var position: String {
-        didSet {
-            onPositionChange?()
-        }
-    }
-
     var onModelChange: (() -> Void)?
-    var onImageDataChange: (() -> Void)?
-    var onFullNameChange: (() -> Void)?
-    var onPositionChange: (() -> Void)?
-
     var fetchError: String? = nil
-
     var numberOfSections: Int = 1
 
     init(player: Player, networkManager: NetworkManagerProtocol) {
         self.player = player
-        self.imageData = player.imageData
-        self.fullName = player.fullName
-        self.position = player.position
         self.networkManager = networkManager
     }
 

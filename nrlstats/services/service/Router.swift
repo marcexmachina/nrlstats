@@ -30,7 +30,7 @@ class Router<Endpoint: EndpointType>: NetworkRouter {
         case .request:
             request.setValue("application/json", forHTTPHeaderField: "Content-type")
         }
-        print("Request URL:: \(request.url?.absoluteString)")
+
         return request
     }
 }

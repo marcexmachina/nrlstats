@@ -77,23 +77,3 @@ class PlayerStatViewViewModelTests: XCTestCase {
         XCTAssertTrue(bindingMethodCalled, "Binding method not called")
     }
 }
-
-extension Player {
-    static func mock() -> Player {
-        return Player(id: 1,
-                      surname: "Player",
-                      position: "Position",
-                      fullName: "Test Player",
-                      shortName: "T. Player",
-                      dateOfBirth: "1/1/1990",
-                      heightCm: 183,
-                      otherNames: "Test",
-                      weightKg: 70,
-                      lastMatchId: "",
-                      lastMatchStats: nil,
-                      statValue: 1,
-                      jumperNumber: 1,
-                      imageData: nil,
-                      teamId: 123)
-    }
-}

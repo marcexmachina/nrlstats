@@ -14,15 +14,11 @@ class DetailedPlayerStatsViewModelTests: XCTestCase {
 
     var sut: DetailedPlayerStatsViewModel?
     var networkManager: MockNetworkManager?
-    var bindingMethodCalled: Bool = false
-    var bindingClosure: (() -> Void)?
     
     override func setUp() {
         super.setUp()
         networkManager = MockNetworkManager()
         sut = DetailedPlayerStatsViewModel(player: Player.mock(), networkManager: networkManager!)
-        bindingMethodCalled = false
-        bindingClosure =  { self.bindingMethodCalled = true }
     }
     
     override func tearDown() {
@@ -47,30 +43,4 @@ class DetailedPlayerStatsViewModelTests: XCTestCase {
     func testNumberOfRowsInSection_GivenNoStats() {
         XCTAssert(sut?.numberOfRowsInSection(section: 0) == 0)
     }
-
-    func testImageDataBindingCalled() {
-        sut?.onImageDataChange = bindingClosure
-        sut?.imageData = Data()
-        XCTAssertTrue(bindingMethodCalled, "Binding method not called")
-    }
-
-    func testPositionBindingCalled() {
-        sut?.onPositionChange = bindingClosure
-        sut?.position = "New"
-        XCTAssertTrue(bindingMethodCalled, "Binding method not called")
-    }
-
-    func testFullNameBindingCalled() {
-        sut?.onFullNameChange = bindingClosure
-        sut?.fullName = "New"
-        XCTAssertTrue(bindingMethodCalled, "Binding method not called")
-    }
-    
-    // MARK: Private helpers
-
-    private func assertBindingCalled() {
-        sut?.load()
-        XCTAssertTrue(bindingMethodCalled, "Binding method not called")
-    }
-    
 }

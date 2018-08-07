@@ -54,7 +54,7 @@ extension KeyedDecodingContainer where Key == LastMatchStats.CodingKeys {
             } else if let value = try? decode(Double.self, forKey: key) {
                 data[key.stringValue] = value
             } else {
-//                NSLog("Key %@ type not supported", key.stringValue)
+                NSLog("Key %@ type not supported", key.stringValue)
             }
         }
         return data
